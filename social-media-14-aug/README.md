@@ -1,6 +1,18 @@
-# Codevelix — 14 August Pakistan Independence Day posts
+# Codevelix — social logos + 14 August posts
 
-Ready-to-post graphics for WhatsApp, Instagram, and Facebook.
+## Social media logos
+
+Use these as profile photos and covers.
+
+| File | Use on |
+| --- | --- |
+| `logos/codevelix-logo-profile-icon.png` | WhatsApp DP, Instagram, Facebook, LinkedIn profile (circle-safe icon) |
+| `logos/codevelix-logo-profile-wordmark.png` | Dark profile / highlight cover with name |
+| `logos/codevelix-logo-profile-light.png` | Light profile / highlight cover |
+| `logos/codevelix-logo-facebook-cover.png` | Facebook cover / LinkedIn banner |
+| `logos/codevelix-social-brand-card.png` | Evergreen feed post with services |
+
+## 14 August Independence Day posts
 
 | File | Size | Use on |
 | --- | --- | --- |
@@ -12,10 +24,12 @@ Ready-to-post graphics for WhatsApp, Instagram, and Facebook.
 
 🇵🇰 Happy Independence Day, Pakistan.
 
-From Codevelix in Lahore — websites, custom software, and SaaS built for Pakistani businesses.
+💻 Web & Software Development
+⚙️ ERP • CRM • POS • SaaS
+📱 Mobile Apps • Laravel • React
+🚀 Design. Build. Launch. Scale.
+🌐 codevelix.com
 
-14 August 1947 — 2026
-
-codevelix.com
+From Codevelix, Lahore.
 
 #14August #PakistanIndependenceDay #Codevelix #HappyIndependenceDay
