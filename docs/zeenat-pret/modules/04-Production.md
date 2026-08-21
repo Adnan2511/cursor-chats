@@ -86,7 +86,7 @@ Fabric Stuff and Color are separate mandatory columns (Lawn, Organza, Chiffon, N
 ### 4.3 Embroidery + Backup Logic
 
 - Only components with Embroidery = Yes are issued to embroidery.  
-- Non-embroidered components (e..g. Back, Trouser) reserved as **BACKUP** against Job Card + Article + Color + Component.  
+- Non-embroidered components (e.g. Back, Trouser) reserved as **BACKUP** against Job Card + Article + Color + Component.  
 - Backup is **not free stock**.  
 - After embroidery receipt & reconciliation: Embroidery Received + Backup Released = consolidated issue to next stage.  
 - Shortage / rejection / damage / excess recorded with reason, responsible vendor/team, approval before backup release.
