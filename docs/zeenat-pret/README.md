@@ -8,6 +8,15 @@
 
 ---
 
+## Downloadable Document File
+
+**Word document (company shareable):**  
+[`Zeenat_Pret_Software_Requirements_Specification.docx`](./Zeenat_Pret_Software_Requirements_Specification.docx)
+
+This single `.docx` file contains the full consolidated requirements (all modules) for management and vendor use.
+
+---
+
 ## Document Index
 
 | # | Document | Purpose |
