@@ -14,7 +14,10 @@
 [`Zeenat_Pret_Software_Requirements_Specification.docx`](./Zeenat_Pret_Software_Requirements_Specification.docx) — full consolidated requirements (all modules).
 
 **Quotation (Word — Codevelix):**  
-[`Codevelix_Quotation_Zeenat_Pret_Odoo_ERP.docx`](./Codevelix_Quotation_Zeenat_Pret_Odoo_ERP.docx) — technical & financial quotation based on Scope of Work (Odoo ERP) + requirements specification.
+[`Codevelix_Quotation_Zeenat_Pret_Odoo_ERP.docx`](./Codevelix_Quotation_Zeenat_Pret_Odoo_ERP.docx) — Odoo-based technical & financial quotation (earlier draft).
+
+**Development Quotation — PKR 800,000 (Word — Codevelix):**  
+[`Codevelix_Development_Quotation_Zeenat_Pret_800000.docx`](./Codevelix_Development_Quotation_Zeenat_Pret_800000.docx) — consolidated comparison (Requirements DOCX + Odoo SOW PDF) + custom ERP development quote at **PKR 800,000**.
 
 ---
 
