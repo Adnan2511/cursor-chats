@@ -8,12 +8,13 @@
 
 ---
 
-## Downloadable Document File
+## Downloadable Document Files
 
-**Word document (company shareable):**  
-[`Zeenat_Pret_Software_Requirements_Specification.docx`](./Zeenat_Pret_Software_Requirements_Specification.docx)
+**Requirements (Word):**  
+[`Zeenat_Pret_Software_Requirements_Specification.docx`](./Zeenat_Pret_Software_Requirements_Specification.docx) — full consolidated requirements (all modules).
 
-This single `.docx` file contains the full consolidated requirements (all modules) for management and vendor use.
+**Quotation (Word — Codevelix):**  
+[`Codevelix_Quotation_Zeenat_Pret_Odoo_ERP.docx`](./Codevelix_Quotation_Zeenat_Pret_Odoo_ERP.docx) — technical & financial quotation based on Scope of Work (Odoo ERP) + requirements specification.
 
 ---
 
