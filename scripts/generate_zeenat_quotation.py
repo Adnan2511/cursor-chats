@@ -368,51 +368,54 @@ def build_document():
     add_heading(doc, "6. Commercial Proposal", 1)
 
     add_heading(doc, "6.1 One-Time Implementation Investment", 2)
-    comm_table = doc.add_table(rows=1, cols=4)
-    comm_table.style = "Table Grid"
-    comm_hdr = comm_table.rows[0].cells
-    for i, text in enumerate(["Component", "Qty", "Rate (PKR)", "Amount (PKR)"]):
-        comm_hdr[i].text = text
-        set_cell_shading(comm_hdr[i], "1A365D")
-        for p in comm_hdr[i].paragraphs:
+    doc.add_paragraph(
+        "Codevelix offers a complete end-to-end implementation of the integrated ERP and "
+        "Manufacturing Management System as defined in Section 3 of this quotation. The "
+        "investment covers all modules, integrations, data migration, training, and go-live support."
+    )
+
+    summary_table = doc.add_table(rows=2, cols=2)
+    summary_table.style = "Table Grid"
+    hdr = summary_table.rows[0].cells
+    hdr[0].text = "Description"
+    hdr[1].text = "Amount (PKR)"
+    for cell in hdr:
+        set_cell_shading(cell, "1A365D")
+        for p in cell.paragraphs:
             for r in p.runs:
                 r.bold = True
                 r.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
                 r.font.size = Pt(10)
 
-    commercial_items = [
-        ("Core Platform — Users, Roles, Security & Approvals", "1", "50,000", "50,000"),
-        ("HR, Attendance & Payroll Module", "1", "105,000", "105,000"),
-        ("Purchase & Procurement Module", "1", "75,000", "75,000"),
-        ("Inventory, Warehouse & Stock Management", "1", "85,000", "85,000"),
-        ("Production & Manufacturing\n(Job Card, Embroidery, Workflow, Costing, Dashboard)", "1", "170,000", "170,000"),
-        ("Accounts, Finance & Reconciliation", "1", "95,000", "95,000"),
-        ("Outlet POS — Branch Operations", "3", "30,000", "90,000"),
-        ("Packing Store, Dispatch & Gatepass", "1", "55,000", "55,000"),
-        ("E-Commerce & Courier Integration", "1", "75,000", "75,000"),
-        ("Reports, Dashboards & Management Analytics", "1", "Included", "—"),
-        ("Data Migration & Opening Balances", "1", "Included", "—"),
-        ("On-Site Training, UAT & Go-Live Support", "1", "Included", "—"),
-    ]
-    for item in commercial_items:
-        row = comm_table.add_row()
-        for i, val in enumerate(item):
-            row.cells[i].text = val
-            for p in row.cells[i].paragraphs:
-                for r in p.runs:
-                    r.font.size = Pt(9)
-
-    total_row = comm_table.add_row()
-    total_row.cells[0].text = "TOTAL ONE-TIME IMPLEMENTATION"
-    total_row.cells[1].text = ""
-    total_row.cells[2].text = ""
-    total_row.cells[3].text = "Rs. 800,000"
-    for cell in total_row.cells:
+    total_cells = summary_table.rows[1].cells
+    total_cells[0].text = (
+        "Complete ERP Implementation — all modules, 3 outlet branches, integrations, "
+        "data migration, training, UAT, and go-live support"
+    )
+    total_cells[1].text = "Rs. 800,000"
+    for cell in total_cells:
         set_cell_shading(cell, "E2E8F0")
         for p in cell.paragraphs:
             for r in p.runs:
                 r.bold = True
                 r.font.size = Pt(11)
+
+    doc.add_paragraph()
+    doc.add_paragraph("This investment includes:").runs[0].bold = True
+    for item in [
+        "Core platform with users, roles, security, and approval workflows",
+        "HR, attendance, and payroll management",
+        "Purchase, procurement, and supplier management",
+        "Inventory, warehouse, and stock control",
+        "Production and manufacturing (Job Card, embroidery, workflow, costing, dashboard)",
+        "Accounts, finance, and department-wise reconciliation",
+        "Outlet POS for 3 branches",
+        "Packing store, dispatch, and gatepass management",
+        "E-commerce and courier integration",
+        "Reports, dashboards, and management analytics",
+        "Data migration, opening balances, on-site training, UAT, and go-live support",
+    ]:
+        add_bullet(doc, item)
 
     doc.add_paragraph()
     doc.add_paragraph(

@@ -315,29 +315,46 @@ def build_pdf():
     # 6. Commercial Proposal
     story.append(Paragraph("6. Commercial Proposal", styles["H1"]))
     story.append(Paragraph("6.1 One-Time Implementation Investment", styles["H2"]))
+    story.append(Paragraph(
+        "Codevelix offers a complete end-to-end implementation of the integrated ERP and "
+        "Manufacturing Management System as defined in Section 3 of this quotation. The "
+        "investment covers all modules, integrations, data migration, training, and go-live support.",
+        styles["Body"],
+    ))
     commercial = [
-        ["Component", "Qty", "Rate (PKR)", "Amount (PKR)"],
-        ["Core Platform — Users, Roles, Security & Approvals", "1", "50,000", "50,000"],
-        ["HR, Attendance & Payroll Module", "1", "105,000", "105,000"],
-        ["Purchase & Procurement Module", "1", "75,000", "75,000"],
-        ["Inventory, Warehouse & Stock Management", "1", "85,000", "85,000"],
-        ["Production & Manufacturing (Job Card, Embroidery, Workflow, Costing, Dashboard)", "1", "170,000", "170,000"],
-        ["Accounts, Finance & Reconciliation", "1", "95,000", "95,000"],
-        ["Outlet POS — Branch Operations", "3", "30,000", "90,000"],
-        ["Packing Store, Dispatch & Gatepass", "1", "55,000", "55,000"],
-        ["E-Commerce & Courier Integration", "1", "75,000", "75,000"],
-        ["Reports, Dashboards & Management Analytics", "1", "Included", "—"],
-        ["Data Migration & Opening Balances", "1", "Included", "—"],
-        ["On-Site Training, UAT & Go-Live Support", "1", "Included", "—"],
-        ["TOTAL ONE-TIME IMPLEMENTATION", "", "", "Rs. 800,000"],
+        ["Description", "Amount (PKR)"],
+        [
+            "Complete ERP Implementation — all modules, 3 outlet branches, integrations, "
+            "data migration, training, UAT, and go-live support",
+            "Rs. 800,000",
+        ],
     ]
-    t = make_table(commercial, [2.8 * inch, 0.5 * inch, 0.9 * inch, 1.0 * inch])
+    t = make_table(commercial, [4.5 * inch, 1.7 * inch])
     t.setStyle(TableStyle([
-        ("BACKGROUND", (0, -1), (-1, -1), LIGHT),
-        ("FONTNAME", (0, -1), (-1, -1), "Helvetica-Bold"),
-        ("FONTSIZE", (0, -1), (-1, -1), 10),
+        ("BACKGROUND", (0, 1), (-1, 1), LIGHT),
+        ("FONTNAME", (0, 1), (-1, 1), "Helvetica-Bold"),
+        ("FONTSIZE", (0, 1), (-1, 1), 10),
     ]))
     story.append(t)
+    story.append(Spacer(1, 8))
+    story.append(Paragraph("<b>This investment includes:</b>", styles["Body"]))
+    included_commercial = [
+        "Core platform with users, roles, security, and approval workflows",
+        "HR, attendance, and payroll management",
+        "Purchase, procurement, and supplier management",
+        "Inventory, warehouse, and stock control",
+        "Production and manufacturing (Job Card, embroidery, workflow, costing, dashboard)",
+        "Accounts, finance, and department-wise reconciliation",
+        "Outlet POS for 3 branches",
+        "Packing store, dispatch, and gatepass management",
+        "E-commerce and courier integration",
+        "Reports, dashboards, and management analytics",
+        "Data migration, opening balances, on-site training, UAT, and go-live support",
+    ]
+    story.append(ListFlowable(
+        [bullet(i) for i in included_commercial],
+        bulletType="bullet", start="•", leftIndent=14,
+    ))
     story.append(Spacer(1, 8))
     story.append(Paragraph(
         "<b>Payment terms:</b> 50% (Rs. 400,000) upon contract sign-off | "
