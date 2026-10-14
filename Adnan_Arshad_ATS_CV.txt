@@ -1,0 +1,70 @@
+Adnan Arshad
+Web Developer
+Lahore, Pakistan | +92 306 4228502 | adnanjutt2511@gmail.com
+
+PROFESSIONAL SUMMARY
+
+Web Developer with professional experience since 2019 designing, developing, and maintaining dynamic web applications for business operations. Skilled in Core PHP, Laravel, JavaScript, HTML5, CSS3, Bootstrap, jQuery, AJAX, React.js, and MySQL. Experienced in building responsive user interfaces, optimizing backend performance, resolving complex bugs, and delivering web-based systems including POS, e-commerce, ERP, and cloud compiler applications.
+
+TECHNICAL SKILLS
+
+Programming Languages: PHP, JavaScript
+Frameworks and Libraries: Laravel, React.js, jQuery, Bootstrap
+Front-End Development: HTML5, CSS3, responsive web design, AJAX, cross-browser compatibility
+Back-End Development: Core PHP, Laravel application development, server-side logic, performance optimization
+Database: MySQL, database queries, query optimization
+Web Development: Dynamic web applications, e-commerce platforms, ERP systems, POS systems
+Professional Skills: Debugging, troubleshooting, requirements analysis, team collaboration, project delivery
+
+PROFESSIONAL EXPERIENCE
+
+Web Developer
+Immi Garments, Lahore
+October 2020 - Present
+
+- Design, develop, and maintain dynamic web applications using PHP, Laravel, JavaScript, and MySQL.
+- Build responsive and user-friendly interfaces with HTML5, CSS3, Bootstrap, jQuery, and AJAX.
+- Optimize backend processes, PHP code, and database queries to improve application performance, reliability, and scalability.
+- Translate business requirements into functional web solutions that support operational workflows and user needs.
+- Diagnose and resolve bugs, compatibility issues, and performance problems to maintain a consistent user experience.
+- Collaborate with internal teams throughout the project lifecycle to deliver high-quality web applications on schedule.
+
+Web Developer
+IT Genesis, Lahore
+November 2019 - October 2020
+
+- Built and maintained PHP-based web applications aligned with project requirements and client expectations.
+- Developed responsive front-end layouts using HTML5, CSS3, Bootstrap, and JavaScript for desktop and mobile users.
+- Implemented interactive website features to improve usability, navigation, and user engagement.
+- Improved front-end and back-end performance for faster loading times and smoother application behavior.
+- Supported integration between user interfaces, server-side functionality, and MySQL database operations.
+- Troubleshot coding issues and resolved defects to maintain stable and reliable web applications.
+- Worked with team members to deliver development tasks within tight deadlines and quality standards.
+
+KEY PROJECTS
+
+POS System
+- Developed a user-friendly Point of Sale system using PHP for business transaction workflows.
+- Created responsive front-end interfaces with HTML, CSS, and Bootstrap for simple navigation and usability.
+- Improved system reliability and scalability through structured backend development.
+
+E-Commerce Website
+- Built a fully functional e-commerce platform with Core PHP for backend functionality.
+- Designed responsive and visually consistent front-end layouts using HTML, CSS, and Bootstrap.
+- Added JavaScript-based interactivity to improve product browsing, navigation, and user engagement.
+
+ERP System
+- Developed modules for an Enterprise Resource Planning system to support business management processes.
+- Engineered backend processes with PHP and implemented responsive front-end modules using HTML, CSS, and Bootstrap.
+- Focused on usability across devices and efficient web-based access for users.
+
+Cloud Compiler
+- Designed and developed a cloud-based compiler as a final year project.
+- Built a web-based interface that allowed users to write, compile, and execute code in multiple programming languages.
+- Focused on accessibility, platform independence, and efficient coding and debugging workflows.
+
+EDUCATION
+
+Bachelor of Science in Information Technology
+Lahore Garrison University, Lahore
+2020
