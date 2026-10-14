@@ -1,11 +1,11 @@
 # Adnan Arshad
 
 **Web Developer**
-Lahore, Pakistan | +92 306 4228502 | adnanjutt2511@gmail.com
+Lahore, Pakistan | +92 306 4228502 | adnanjutt2511@gmail.com | Portfolio: https://codevelix.com/portfolio
 
 ## Professional Summary
 
-Web Developer with professional experience since 2019 designing, developing, and maintaining dynamic web applications for business operations. Skilled in Core PHP, Laravel, JavaScript, HTML5, CSS3, Bootstrap, jQuery, AJAX, React.js, and MySQL. Experienced in building responsive user interfaces, optimizing backend performance, resolving complex bugs, and delivering web-based systems including POS, e-commerce, ERP, and cloud compiler applications.
+Web Developer with professional experience since 2019 designing, developing, and maintaining dynamic web applications for business operations. Skilled in Core PHP, Laravel, JavaScript, HTML5, CSS3, Bootstrap, jQuery, AJAX, React.js, and MySQL. Experienced in building responsive user interfaces, optimizing backend performance, resolving complex bugs, and delivering web-based systems including e-commerce stores, CRM platforms, Laravel portals, POS systems, ERP systems, and cloud compiler applications.
 
 ## Technical Skills
 
@@ -14,7 +14,8 @@ Web Developer with professional experience since 2019 designing, developing, and
 - **Front-End Development:** HTML5, CSS3, responsive web design, AJAX, cross-browser compatibility
 - **Back-End Development:** Core PHP, Laravel application development, server-side logic, performance optimization
 - **Database:** MySQL, database queries, query optimization
-- **Web Development:** Dynamic web applications, e-commerce platforms, ERP systems, POS systems
+- **Web Development:** Dynamic web applications, e-commerce platforms, CRM systems, Laravel portals, ERP systems, POS systems
+- **Business Features:** Product catalogues, secure checkout, file uploads, email notifications, reports, admin dashboards, SEO-ready pages
 - **Professional Skills:** Debugging, troubleshooting, requirements analysis, team collaboration, project delivery
 
 ## Professional Experience
@@ -44,7 +45,39 @@ November 2019 - October 2020
 - Troubleshot coding issues and resolved defects to maintain stable and reliable web applications.
 - Worked with team members to deliver development tasks within tight deadlines and quality standards.
 
-## Key Projects
+## Selected Portfolio Projects
+
+### The Phone Lads - Mobile Accessories and Repair E-Commerce
+
+- Developed a UK e-commerce and repair website for mobile accessories, power banks, travel adapters, and device services.
+- Built an accessory catalogue, deals section, repair booking flow, mobile-ready product discovery, responsive UI, and SEO-ready storefront.
+
+### TCRBlooms - Premium Flower Shop and Online Store
+
+- Developed a UK flower e-commerce store for bouquets, gifts, custom arrangements, secure checkout, and nationwide delivery.
+- Implemented bouquet catalogue, product catalogue, custom arrangement flow, responsive UI, and SEO-ready storefront pages.
+
+### Premium Cad Cam - Dental Aligner and CAD Portal
+
+- Built a Laravel dental services portal for patient case intake, scan and CAD file uploads, aligner workflows, and correction management.
+- Implemented secure authentication, dental case management features, file upload workflows, and multi-round correction tracking.
+
+### Gems Drive - UK Car Rental CRM
+
+- Developed a Laravel CRM for car rental operations, vehicle check-in and check-out, damage sheet capture, and operational reporting.
+- Added reports, exports, and automated email notifications for staff, customers, and administrators.
+
+### Robe Spa - Dubai Spa and Wellness Website
+
+- Created a Dubai spa and wellness business website for treatment presentation, booking enquiries, and premium brand positioning.
+- Built mobile-first responsive pages, lead enquiry paths, SEO-ready content pages, and a polished user experience.
+
+### MSBBL - Dubai Network and Residential CRM
+
+- Developed a Laravel CRM for managing multiple network sites, residential areas, customer records, and operational workflows.
+- Built customer database features, financial reporting, residential area tracking, and admin dashboards.
+
+## Additional Projects
 
 ### POS System
 
