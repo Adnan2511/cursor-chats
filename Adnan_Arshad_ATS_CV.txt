@@ -68,28 +68,6 @@ MSBBL - Dubai Network and Residential CRM
 - Developed a Laravel CRM for managing multiple network sites, residential areas, customer records, and operational workflows.
 - Built customer database features, financial reporting, residential area tracking, and admin dashboards.
 
-ADDITIONAL PROJECTS
-
-POS System
-- Developed a user-friendly Point of Sale system using PHP for business transaction workflows.
-- Created responsive front-end interfaces with HTML, CSS, and Bootstrap for simple navigation and usability.
-- Improved system reliability and scalability through structured backend development.
-
-E-Commerce Website
-- Built a fully functional e-commerce platform with Core PHP for backend functionality.
-- Designed responsive and visually consistent front-end layouts using HTML, CSS, and Bootstrap.
-- Added JavaScript-based interactivity to improve product browsing, navigation, and user engagement.
-
-ERP System
-- Developed modules for an Enterprise Resource Planning system to support business management processes.
-- Engineered backend processes with PHP and implemented responsive front-end modules using HTML, CSS, and Bootstrap.
-- Focused on usability across devices and efficient web-based access for users.
-
-Cloud Compiler
-- Designed and developed a cloud-based compiler as a final year project.
-- Built a web-based interface that allowed users to write, compile, and execute code in multiple programming languages.
-- Focused on accessibility, platform independence, and efficient coding and debugging workflows.
-
 EDUCATION
 
 Bachelor of Science in Information Technology
