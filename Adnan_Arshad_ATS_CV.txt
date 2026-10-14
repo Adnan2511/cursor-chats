@@ -1,0 +1,75 @@
+Adnan Arshad
+Web Developer
+Lahore, Pakistan | +92 306 4228502 | adnanarshad2511@gmail.com
+
+PROFESSIONAL SUMMARY
+
+Web Developer with professional experience since 2019 building responsive, database-driven web applications for business operations. Strong hands-on skills in Core PHP, Laravel, JavaScript, HTML5, CSS3, Bootstrap, jQuery, AJAX, React.js, and MySQL. Experienced in delivering e-commerce stores, CRM systems, Laravel portals, admin dashboards, and business websites with clean user interfaces, reliable backend logic, performance optimization, and cross-browser compatibility.
+
+TECHNICAL SKILLS
+
+Programming Languages: PHP, JavaScript
+Frameworks and Libraries: Laravel, React.js, jQuery, Bootstrap
+Front-End Development: HTML5, CSS3, responsive web design, AJAX, cross-browser compatibility
+Back-End Development: Core PHP, Laravel application development, server-side logic, authentication, performance optimization
+Database: MySQL, SQL queries, query optimization, database-driven applications
+Application Types: E-commerce platforms, CRM systems, Laravel portals, ERP systems, POS systems, business websites
+Business Features: Product catalogues, secure checkout, file uploads, email notifications, reports, admin dashboards, SEO-ready pages
+Professional Skills: Debugging, troubleshooting, requirements analysis, cross-functional collaboration, project delivery
+
+PROFESSIONAL EXPERIENCE
+
+Web Developer
+Immi Garments, Lahore
+October 2020 - Present
+
+- Design, develop, and maintain PHP and Laravel web applications for business workflows and operational users.
+- Build responsive, mobile-friendly interfaces with HTML5, CSS3, Bootstrap, jQuery, AJAX, and JavaScript.
+- Develop backend logic, MySQL queries, and database-driven modules focused on reliability, scalability, and maintainability.
+- Translate business requirements into functional web solutions that improve usability and support day-to-day operations.
+- Diagnose and resolve bugs, compatibility issues, and performance problems across front-end and back-end code.
+- Collaborate with internal teams throughout the full project lifecycle to deliver stable, user-friendly applications.
+
+Web Developer
+IT Genesis, Lahore
+November 2019 - October 2020
+
+- Built and maintained PHP-based web applications aligned with client requirements and project objectives.
+- Developed responsive front-end layouts using HTML5, CSS3, Bootstrap, and JavaScript for desktop and mobile users.
+- Implemented interactive website features that improved usability, navigation, and user engagement.
+- Supported front-end and back-end integration with server-side PHP functionality and MySQL database operations.
+- Improved application performance by refining front-end behavior, backend logic, and page loading flow.
+- Troubleshot coding issues, browser compatibility problems, and defects to maintain stable web applications.
+- Worked with team members to complete development tasks within deadlines and quality standards.
+
+SELECTED PROJECTS
+
+The Phone Lads - Mobile Accessories and Repair E-Commerce
+- Developed a UK e-commerce and repair website for mobile accessories, power banks, travel adapters, and device services.
+- Built product catalogue, deals, repair booking, mobile-ready product discovery, responsive UI, and SEO-ready storefront features.
+
+TCRBlooms - Premium Flower Shop and Online Store
+- Developed a UK flower e-commerce store for bouquets, gifts, custom arrangements, secure checkout, and nationwide delivery.
+- Implemented product catalogue, bouquet ordering, custom arrangement flow, responsive UI, and SEO-ready storefront pages.
+
+Premium Cad Cam - Dental Aligner and CAD Portal
+- Built a Laravel dental services portal for patient case intake, scan and CAD uploads, aligner workflows, and correction management.
+- Implemented secure authentication, dental case management, file upload workflows, and multi-round correction tracking.
+
+Gems Drive - UK Car Rental CRM
+- Developed a Laravel CRM for car rental operations, vehicle check-in and check-out, damage sheet capture, and reporting.
+- Added operational reports, exports, and automated email notifications for staff, customers, and administrators.
+
+Robe Spa - Dubai Spa and Wellness Website
+- Created a Dubai spa and wellness business website for treatment presentation, booking enquiries, and premium brand positioning.
+- Built mobile-first responsive pages, lead enquiry paths, SEO-ready content pages, and a polished user experience.
+
+MSBBL - Dubai Network and Residential CRM
+- Developed a Laravel CRM for managing multiple network sites, residential areas, customer records, and operational workflows.
+- Built customer database features, financial reporting, area tracking, and admin dashboards.
+
+EDUCATION
+
+Bachelor of Science in Information Technology
+Lahore Garrison University, Lahore
+2020
