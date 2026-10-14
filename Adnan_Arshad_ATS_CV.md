@@ -1,6 +1,6 @@
 # Adnan Arshad
 
-**Web Developer**  
+**Web Developer**
 Lahore, Pakistan | +92 306 4228502 | adnanjutt2511@gmail.com
 
 ## Professional Summary
@@ -21,7 +21,7 @@ Web Developer with professional experience since 2019 designing, developing, and
 
 ### Web Developer
 
-**Immi Garments, Lahore**  
+**Immi Garments, Lahore**
 October 2020 - Present
 
 - Design, develop, and maintain dynamic web applications using PHP, Laravel, JavaScript, and MySQL.
@@ -33,7 +33,7 @@ October 2020 - Present
 
 ### Web Developer
 
-**IT Genesis, Lahore**  
+**IT Genesis, Lahore**
 November 2019 - October 2020
 
 - Built and maintained PHP-based web applications aligned with project requirements and client expectations.
@@ -72,6 +72,6 @@ November 2019 - October 2020
 
 ## Education
 
-**Bachelor of Science in Information Technology**  
-Lahore Garrison University, Lahore  
+**Bachelor of Science in Information Technology**
+Lahore Garrison University, Lahore
 2020
