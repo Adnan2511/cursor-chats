@@ -1,7 +1,7 @@
 # Adnan Arshad
 
 **Web Developer**
-Lahore, Pakistan | +92 306 4228502 | adnanjutt2511@gmail.com | Portfolio: https://codevelix.com/portfolio
+Lahore, Pakistan | +92 306 4228502 | adnanjutt2511@gmail.com
 
 ## Professional Summary
 
