@@ -1,0 +1,6 @@
+audio/
+clips/
+frames/
+lyrics/
+__pycache__/
+*.pyc
