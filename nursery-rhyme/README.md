@@ -17,7 +17,14 @@ a cheerful yellow duckling, a friendly floppy-eared bunny, and a smiling baby el
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 pip3 install --user edge-tts numpy pillow
-python3 build_video.py
+
+# Landscape 16:9 (YouTube)
+python3 build_video.py --format landscape
+
+# Vertical reel 9:16 (Instagram / TikTok / Shorts)
+python3 build_video.py --format reel
 ```
 
-Output: `/opt/cursor/artifacts/friends-in-the-meadow.mp4`
+Outputs:
+- `/opt/cursor/artifacts/friends-in-the-meadow.mp4` (1920×1080)
+- `/opt/cursor/artifacts/friends-in-the-meadow-reel.mp4` (1080×1920)

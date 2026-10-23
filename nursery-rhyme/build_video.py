@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-"""Build a 30s toddler nursery-rhyme video from keyframes + TTS + melody."""
+"""Build a 30s toddler nursery-rhyme video from keyframes + TTS + melody.
+
+Formats:
+  landscape  1920x1080 (16:9)
+  reel       1080x1920 (9:16) — Instagram / TikTok / Shorts
+"""
 
 from __future__ import annotations
 
+import argparse
 import asyncio
 import math
 import subprocess
@@ -21,7 +27,6 @@ CLIPS = ROOT / "clips"
 OUT = Path("/opt/cursor/artifacts")
 FPS = 30
 DURATION = 30
-W, H = 1920, 1080
 
 LINES = [
     (0.0, 5.0, "Duckling, bunny, elephant too"),
@@ -32,7 +37,7 @@ LINES = [
     (25.0, 30.0, "Happy friends — that's you and me!"),
 ]
 
-IMAGE_SEQUENCE = [
+LANDSCAPE_IMAGES = [
     ASSETS / "nursery-hero.jpg",
     ASSETS / "nursery-sing.jpg",
     ASSETS / "nursery-dance.jpg",
@@ -41,8 +46,49 @@ IMAGE_SEQUENCE = [
     ASSETS / "nursery-finale.jpg",
 ]
 
+REEL_IMAGES = [
+    ASSETS / "reel-hero.jpg",
+    ASSETS / "reel-sing.jpg",
+    ASSETS / "reel-dance.jpg",
+    ASSETS / "reel-sing.jpg",
+    ASSETS / "reel-dance.jpg",
+    ASSETS / "reel-finale.jpg",
+]
+
 FONT_PATH = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 VOICE = "en-US-AnaNeural"
+
+# Set by configure()
+W = 1920
+H = 1080
+IMAGE_SEQUENCE: list[Path] = LANDSCAPE_IMAGES
+OUTPUT_NAME = "friends-in-the-meadow.mp4"
+LYRIC_CARD_SIZE = (1600, 160)
+LYRIC_BOTTOM_PAD = 70
+FORMAT_NAME = "landscape"
+
+
+def configure(fmt: str) -> None:
+    global W, H, IMAGE_SEQUENCE, OUTPUT_NAME, LYRIC_CARD_SIZE, LYRIC_BOTTOM_PAD, FORMAT_NAME
+    FORMAT_NAME = fmt
+    if fmt == "reel":
+        W, H = 1080, 1920
+        IMAGE_SEQUENCE = REEL_IMAGES
+        OUTPUT_NAME = "friends-in-the-meadow-reel.mp4"
+        LYRIC_CARD_SIZE = (980, 220)
+        LYRIC_BOTTOM_PAD = 160  # above typical reel UI chrome
+        CLIPS_DIR = ROOT / "clips_reel"
+        LYRICS_DIR = ROOT / "lyrics_reel"
+        globals()["CLIPS"] = CLIPS_DIR
+        globals()["LYRICS"] = LYRICS_DIR
+    else:
+        W, H = 1920, 1080
+        IMAGE_SEQUENCE = LANDSCAPE_IMAGES
+        OUTPUT_NAME = "friends-in-the-meadow.mp4"
+        LYRIC_CARD_SIZE = (1600, 160)
+        LYRIC_BOTTOM_PAD = 70
+        globals()["CLIPS"] = ROOT / "clips"
+        globals()["LYRICS"] = ROOT / "lyrics"
 
 
 def ensure_dirs() -> None:
@@ -212,13 +258,32 @@ def fit_cover(img: Image.Image, tw: int, th: int) -> Image.Image:
     return src.crop((left, top, left + tw, top + th))
 
 
-def render_lyric_card(text: str, out_path: Path, size: tuple[int, int] = (1600, 160)) -> None:
+def wrap_lyric(text: str, font: ImageFont.FreeTypeFont, max_width: int, draw: ImageDraw.ImageDraw) -> list[str]:
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        trial = f"{current} {word}".strip()
+        bbox = draw.textbbox((0, 0), trial, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            current = trial
+        else:
+            if current:
+                lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    return lines or [text]
+
+
+def render_lyric_card(text: str, out_path: Path, size: tuple[int, int] | None = None) -> None:
+    size = size or LYRIC_CARD_SIZE
     card = Image.new("RGBA", size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(card)
     draw.rounded_rectangle(
         [0, 0, size[0] - 1, size[1] - 1],
-        radius=40,
-        fill=(255, 255, 255, 215),
+        radius=36,
+        fill=(255, 255, 255, 220),
     )
     colors = [
         (255, 92, 92),
@@ -228,25 +293,46 @@ def render_lyric_card(text: str, out_path: Path, size: tuple[int, int] = (1600, 
         (186, 110, 230),
         (255, 120, 180),
     ]
-    font_size = 64
-    while font_size > 36:
+    max_text_w = size[0] - 64
+    font_size = 58 if FORMAT_NAME == "reel" else 64
+    min_size = 34 if FORMAT_NAME == "reel" else 36
+    lines: list[str] = [text]
+    font = ImageFont.truetype(FONT_PATH, font_size)
+    while font_size >= min_size:
         font = ImageFont.truetype(FONT_PATH, font_size)
-        bbox = draw.textbbox((0, 0), text, font=font)
-        if bbox[2] - bbox[0] <= size[0] - 80:
+        lines = wrap_lyric(text, font, max_text_w, draw)
+        heights = []
+        widths = []
+        for line in lines:
+            bbox = draw.textbbox((0, 0), line, font=font)
+            widths.append(bbox[2] - bbox[0])
+            heights.append(bbox[3] - bbox[1])
+        total_h = sum(heights) + (len(lines) - 1) * 10
+        if max(widths, default=0) <= max_text_w and total_h <= size[1] - 40:
             break
         font_size -= 2
-    font = ImageFont.truetype(FONT_PATH, font_size)
-    bbox = draw.textbbox((0, 0), text, font=font)
-    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    x = (size[0] - tw) // 2
-    y = (size[1] - th) // 2 - 4
-    cx = x
-    for i, ch in enumerate(text):
-        color = colors[i % len(colors)]
-        draw.text((cx + 2, y + 2), ch, font=font, fill=(40, 40, 60, 90))
-        draw.text((cx, y), ch, font=font, fill=color + (255,))
-        cw = draw.textbbox((0, 0), ch, font=font)[2]
-        cx += cw
+
+    line_gap = 10
+    heights = []
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        heights.append(bbox[3] - bbox[1])
+    total_h = sum(heights) + (len(lines) - 1) * line_gap
+    y = (size[1] - total_h) // 2 - 2
+    char_i = 0
+    for li, line in enumerate(lines):
+        bbox = draw.textbbox((0, 0), line, font=font)
+        tw = bbox[2] - bbox[0]
+        x = (size[0] - tw) // 2
+        cx = x
+        for ch in line:
+            color = colors[char_i % len(colors)]
+            draw.text((cx + 2, y + 2), ch, font=font, fill=(40, 40, 60, 90))
+            draw.text((cx, y), ch, font=font, fill=color + (255,))
+            cw = draw.textbbox((0, 0), ch, font=font)[2]
+            cx += cw
+            char_i += 1
+        y += heights[li] + line_gap
     card.save(out_path)
 
 
@@ -254,6 +340,8 @@ def prepare_sources() -> list[Path]:
     """Upscale/cover-crop sources so zoompan has room to bounce gently."""
     prepared: list[Path] = []
     for i, src in enumerate(IMAGE_SEQUENCE):
+        if not src.exists():
+            raise FileNotFoundError(f"Missing keyframe: {src}")
         dst = CLIPS / f"src_{i}.png"
         fit_cover(Image.open(src), int(W * 1.18), int(H * 1.18)).save(dst)
         prepared.append(dst)
@@ -264,16 +352,15 @@ def prepare_sources() -> list[Path]:
 def make_segment(src: Path, lyric: Path, out: Path, seconds: float = 5.0) -> None:
     """Gentle zoom + bounce via zoompan, with lyric overlay."""
     frames = int(seconds * FPS)
-    # zoom slowly from 1.0 toward 1.05; y bounces with sin
-    # zoompan uses on-expression evaluated per frame
+    bounce = 14 if FORMAT_NAME == "reel" else 10
     z_expr = "min(zoom+0.00035,1.05)"
     x_expr = "iw/2-(iw/zoom/2)"
-    y_expr = f"ih/2-(ih/zoom/2)+10*sin(2*PI*on/{FPS})"
+    y_expr = f"ih/2-(ih/zoom/2)+{bounce}*sin(2*PI*on/{FPS})"
     vf = (
         f"zoompan=z='{z_expr}':x='{x_expr}':y='{y_expr}':d={frames}:s={W}x{H}:fps={FPS},"
         f"format=rgba[bg];"
         f"[1:v]format=rgba[ly];"
-        f"[bg][ly]overlay=(W-w)/2:H-h-70:format=auto,format=yuv420p"
+        f"[bg][ly]overlay=(W-w)/2:H-h-{LYRIC_BOTTOM_PAD}:format=auto,format=yuv420p"
     )
     run_ffmpeg(
         [
@@ -305,9 +392,8 @@ def make_segment(src: Path, lyric: Path, out: Path, seconds: float = 5.0) -> Non
 def concat_and_mux(segments: list[Path], audio: Path, out: Path) -> None:
     """Soft crossfade between segments; segment length chosen so final = 30s."""
     fade = 0.6
-    # n*d - (n-1)*fade = 30  =>  d = (30 + (n-1)*fade) / n
     n = len(segments)
-    seg_dur = (DURATION + (n - 1) * fade) / n  # 5.5s for n=6, fade=0.6
+    seg_dur = (DURATION + (n - 1) * fade) / n
     inputs: list[str] = []
     for seg in segments:
         inputs.extend(["-i", str(seg)])
@@ -359,25 +445,30 @@ def concat_and_mux(segments: list[Path], audio: Path, out: Path) -> None:
     )
 
 
-async def main() -> None:
+async def main(fmt: str = "landscape", reuse_audio: bool = True) -> None:
+    configure(fmt)
     ensure_dirs()
-    print("1/5 Melody…")
+    print(f"Format: {FORMAT_NAME} ({W}x{H})")
+
     melody = AUDIO / "melody.wav"
-    make_melody(melody)
-
-    print("2/5 Vocals…")
     vocals = AUDIO / "vocals.wav"
-    await make_vocals(vocals)
-
-    print("3/5 Mix audio…")
     mixed = AUDIO / "mixed.wav"
-    mix_audio(melody, vocals, mixed)
+
+    if reuse_audio and mixed.exists():
+        print("1-3/5 Reusing existing mixed audio…")
+    else:
+        print("1/5 Melody…")
+        make_melody(melody)
+        print("2/5 Vocals…")
+        await make_vocals(vocals)
+        print("3/5 Mix audio…")
+        mix_audio(melody, vocals, mixed)
 
     print("4/5 Prepare sources + segments…")
     sources = prepare_sources()
     fade = 0.6
     n = len(sources)
-    seg_dur = (DURATION + (n - 1) * fade) / n  # keeps final length at 30s with xfades
+    seg_dur = (DURATION + (n - 1) * fade) / n
     segments: list[Path] = []
     for i, src in enumerate(sources):
         seg = CLIPS / f"seg_{i}.mp4"
@@ -386,9 +477,8 @@ async def main() -> None:
         segments.append(seg)
 
     print("5/5 Concat + mux…")
-    out = OUT / "friends-in-the-meadow.mp4"
+    out = OUT / OUTPUT_NAME
     concat_and_mux(segments, mixed, out)
-    # Probe
     probe = subprocess.run(
         [
             "ffprobe",
@@ -408,4 +498,17 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--format",
+        choices=("landscape", "reel"),
+        default="landscape",
+        help="landscape 16:9 or reel 9:16",
+    )
+    parser.add_argument(
+        "--fresh-audio",
+        action="store_true",
+        help="Regenerate melody/vocals instead of reusing mixed.wav",
+    )
+    args = parser.parse_args()
+    asyncio.run(main(fmt=args.format, reuse_audio=not args.fresh_audio))
